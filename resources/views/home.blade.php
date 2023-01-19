@@ -10,7 +10,7 @@
   <!-- Bootstrap CSS v5.2.1 -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 </head>
 
 <body>
@@ -22,7 +22,27 @@
 <h1>Welcome to CineGo</h1>
 <h2>Select the Movie you want to watch</h2>
 
+
+<div class="row">
 @foreach ($movie as $item)
+
+
+
+    <div class=" col-md-4 col-lg-3 col-sm-6 d-flex align-items-stretch">
+        <a href="/movie/{{$item->ID}}">
+            <div class="card">
+        <img class="card-img-top" src="../images/{{$item->picPath}}" alt="Title">
+        <div class="card-body">
+            <h4 class="card-title">{{$item->Name}}</h4>
+        </div>
+    </div>
+    </a>
+    </div>
+
+
+@endforeach
+</div>
+{{-- @foreach ($movie as $item)
 <div class="form-check">
   <input class="form-check-input" onclick="getRadioVal()" type="radio" name="movie" value= "{{ $item->ID }}" id={{ $item->ID }}>
   <label class="form-check-label" for="movie">
@@ -30,8 +50,8 @@
   </label>
 </div>
 
-@endforeach
-<div id="Selection" style="display:none">
+@endforeach --}}
+{{-- <div id="Selection" style="display:none">
 Movie:
 </div>
 <div id="showtime" style="display:none">
@@ -45,8 +65,8 @@ Movie:
   </label>
 </div>
 
-@endforeach
-</div>
+@endforeach --}}
+{{-- </div>
 <script>
     function getRadioVal() {
         var movieID;
@@ -60,7 +80,7 @@ Movie:
         document.getElementById("showtime").style.display = "block";
 
     }
-</script>
+</script> --}}
 
 
 

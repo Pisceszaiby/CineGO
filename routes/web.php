@@ -19,6 +19,15 @@ Route::get('/', function () {
     $movie = Movies::get();
     $showtime = Showtimes::get();
     $data = compact('movie', 'showtime');
-
     return view('home')->with($data);
+});
+Route::get('/movie/{id}', function ($id) {
+    $showtimes = Showtimes::where('movieID', $id)->get();
+    $data = compact('showtimes');
+    return view('showtimes')->with($data);
+});
+Route::get('/booking/{id}', function ($id) {
+    $showtimes = Showtimes::where('ID', $id)->get();
+    $data = compact('showtimes');
+    return view('booking')->with($data);
 });
