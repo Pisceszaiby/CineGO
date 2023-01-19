@@ -25,9 +25,6 @@
 
 <div class="row">
 @foreach ($movie as $item)
-
-
-
     <div class=" col-md-4 col-lg-3 col-sm-6 d-flex align-items-stretch">
         <a href="/movie/{{$item->ID}}">
             <div class="card">
@@ -38,49 +35,9 @@
     </div>
     </a>
     </div>
-
-
 @endforeach
 </div>
-{{-- @foreach ($movie as $item)
-<div class="form-check">
-  <input class="form-check-input" onclick="getRadioVal()" type="radio" name="movie" value= "{{ $item->ID }}" id={{ $item->ID }}>
-  <label class="form-check-label" for="movie">
-    {{ $item->Name }}
-  </label>
-</div>
 
-@endforeach --}}
-{{-- <div id="Selection" style="display:none">
-Movie:
-</div>
-<div id="showtime" style="display:none">
-<h2 >Showtimes: </h2>
-@foreach ($showtime as $item)
-<div class="form-check">
-  <input class="form-check-input" type="radio" name="showtime" value= "{{ $item->ID }}" id={{ $item->ID }}>
-  <label class="form-check-label" for="movie">
-   Time:  {{ $item->Time }}
-   Date: {{ $item->Date }}
-  </label>
-</div>
-
-@endforeach --}}
-{{-- </div>
-<script>
-    function getRadioVal() {
-        var movieID;
-        var ele = document.getElementsByName('movie');
-        for(i = 0; i < ele.length; i++) {
-            if(ele[i].checked){
-            document.getElementById("Selection").innerHTML= "Movie: "+ele[i].value;
-            movieID=ele[i].value;
-            }
-        }
-        document.getElementById("showtime").style.display = "block";
-
-    }
-</script> --}}
 
 
 
