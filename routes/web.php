@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Models\Movies;
+use App\Models\Showtimes;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +16,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('home');
-});
+    $movie = Movies::get();
+    $showtime = Showtimes::get();
+    $data = compact('movie', 'showtime');
 
+    return view('home')->with($data);
+});
