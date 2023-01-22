@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Models\Movies;
 use App\Models\Showtimes;
+use App\Models\Seats;
+use App\Http\Controllers\AjaxController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,7 +29,11 @@ Route::get('/movie/{id}', function ($id) {
     return view('showtimes')->with($data);
 });
 Route::get('/booking/{id}', function ($id) {
-    $showtimes = Showtimes::where('ID', $id)->get();
-    $data = compact('showtimes');
+    $seats = Seats::where('showtimeID', $id)->get();
+    $data = compact('seats');
     return view('booking')->with($data);
 });
+Route::get('ajax', function () {
+    return view('message');
+});
+Route::post('/getmsg', [AjaxController::class, 'index']);
